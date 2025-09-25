@@ -1,0 +1,8 @@
+# add_subdirectory(utils)
+# add_subdirectory(kernels)
+# add_subdirectory(vector_store)
+# add_subdirectory(query_engine)
+# add_subdirectory(index)
+# add_subdirectory(persistence)
+add_subdirectory(core)
+# add_subdirectory(service)
