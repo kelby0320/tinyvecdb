@@ -1,4 +1,4 @@
-# add_subdirectory(utils)
+add_subdirectory(util)
 # add_subdirectory(kernels)
 # add_subdirectory(vector_store)
 # add_subdirectory(query_engine)

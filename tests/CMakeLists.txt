@@ -9,7 +9,7 @@ FetchContent_MakeAvailable(googletest)
 
 function(tinyvecdb_add_test name)
   add_executable(${name} ${ARGN})
-  target_include_directories(${name} PRIVATE ${TINYVECDB_PUBLIC_INCLUDE_DIR})
+  target_include_directories(${name} PRIVATE ${TINYVECDB_PUBLIC_INCLUDE_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
   target_compile_features(${name} PRIVATE cxx_std_20)
   target_link_libraries(${name}
     PRIVATE
@@ -19,7 +19,7 @@ function(tinyvecdb_add_test name)
       # tinyvecdb_query_engine
       # tinyvecdb_vector_store
       # tinyvecdb_kernels
-      # tinyvecdb_utils
+      tinyvecdb_util
       # tinyvecdb_persistence
       # tinyvecdb_index_hnsw
   )
@@ -27,7 +27,8 @@ function(tinyvecdb_add_test name)
 endfunction()
 
 # Unit tests (add or remove as files land)
-tinyvecdb_add_test(test_smoke             basic_smoke.cpp)
+tinyvecdb_add_test(test_smoke                 basic_smoke.cpp)
+tinyvecdb_add_test(test_shared_thread_pool    unit/util/test_shared_thread_pool.cpp)
 # tinyvecdb_add_test(test_distance        unit/test_distance.cc)
 # tinyvecdb_add_test(test_topk            unit/test_topk.cc)
 # tinyvecdb_add_test(test_vector_store    unit/test_vector_store.cc)
